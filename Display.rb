@@ -65,4 +65,9 @@ class Display
     p "------------------"
   end
 
+  def invalid_position
+    p "Position is not valid"
+    p "Try Again"
+  end
+
 end

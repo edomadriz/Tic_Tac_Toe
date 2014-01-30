@@ -48,9 +48,13 @@ class Game
   def player_make_play
     row = ask_for_row
     column = ask_for_column
-    @board.insert_position_matrix(@player, row, column)
-    switchPlayer
-    display.print_board
+    if board.matrix_position_clear?(row, column)
+      @board.insert_position_matrix(@player, row, column)
+      switchPlayer
+      display.print_board
+    else
+      display.invalid_position
+    end
   end
 
   def ask_for_row
