@@ -6,8 +6,12 @@ class Display
     @board = board
   end
 
+  def welcome_message
+    p "Welcome to Tic_Tac_Toe"
+    p "Enjoy playing"
+  end
+
   def show_options_main_menu
-    p "WELCOME"
     p "Please select an option"
     p "1 New Game"
     p "2 Quit"
@@ -36,7 +40,13 @@ class Display
     board.matrix.each {|vector| p vector}
   end
 
+  def invalid_number
+    p "Invalid number, try again"
+  end
 
-
+  def end_game
+    p "Thank you for playing"
+    p "See you later"
+  end
 
 end
