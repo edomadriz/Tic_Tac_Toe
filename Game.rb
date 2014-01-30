@@ -1,5 +1,5 @@
-require_relative 'Board.rb'
 require_relative 'Display.rb'
+require_relative 'Board.rb'
 class Game
   attr_accessor :board, :player
   attr_reader :display
@@ -7,10 +7,6 @@ class Game
     @board = Board.new
     @display = Display.new(self)
     @player = 1
-  end
-
-  def switchPlayer()
-   @player == 1 ? @player = 2 : @player = 1
   end
 
   def start_game
@@ -35,10 +31,15 @@ class Game
       end
     end
     display.game_tied
+    @board.clear_matrix
     start_game
   end
 
   private 
+
+  def switchPlayer()
+   @player == 1 ? @player = 2 : @player = 1
+  end
 
   def is_valid_entry?(number)
     number < 3 && number >= 0
