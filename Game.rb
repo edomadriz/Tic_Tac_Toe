@@ -16,6 +16,7 @@ class Game
   def start_game
     display.welcome_message
     option = display.show_options_main_menu
+    display.print_board
     option == 1 ? play : display.end_game
   end
 
@@ -26,9 +27,15 @@ class Game
       case option
       when 1
         player_make_play
+      when 2
+       start_game
+      when 3
+        display.end_game
+        exit
       end
-
     end
+    display.game_tied
+    start_game
   end
 
   private 
