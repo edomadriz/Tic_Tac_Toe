@@ -11,7 +11,24 @@ class Display
     p "Please select an option"
     p "1 New Game"
     p "2 Quit"
-    return gets.to_i
+    gets.to_i
   end
+
+  def get_play_row
+    p "Type the row number starting from 0"
+    gets.to_i
+  end
+
+  def get_play_column
+    p "Type the column number starting from 0"
+    gets.to_i
+  end
+
+  def print_board
+    board.matrix.each {|vector| p vector}
+  end
+
+
+
 
 end
