@@ -19,6 +19,19 @@ class Board
     !@matrix.flatten().include(0)
   end
 
+  def clear_matrix
+    @matrix = [
+      [0,0,0],
+      [0,0,0],
+      [0,0,0]
+    ]
+  end
+
+  def get_diagonal
+    [@matrix [0][0], @matrix[1][1], @matrix[2][2]]
+  end
+
+
   def check_vector?(vector,player)
     vector.uniq.size == 1 && vector.uniq.first == player
   end
