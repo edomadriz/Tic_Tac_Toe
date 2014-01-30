@@ -11,8 +11,8 @@ class Board
     ]
   end
 
-  def insert_position(elem, posX, posY)
-    @matrix[posX][posY] = elem
+  def insert_position_matrix(player, posX, posY)
+    @matrix[posX][posY] = player
   end
 
   def full?
@@ -68,14 +68,6 @@ class Board
       check_winner_col(player) ||
       check_diagonal(player) ||
       check_anti_diagonal(player)
-  end
-
-  def insertPlayMatrix(player, posX, posY)
-    if player == 1
-      @matrix.insertPos(1,posX, posY)
-    else
-      @matrix.insertPos(2,posX, posY)
-    end
   end
 
   def printBoard
