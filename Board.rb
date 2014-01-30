@@ -1,4 +1,3 @@
-require_relative 'MultiArray.rb'
 class Board
   #Atributes
   attr_accessor :matrix
@@ -11,8 +10,8 @@ class Board
     ]
   end
 
-  def insert_position_matrix(player, posX, posY)
-    @matrix[posX][posY] = player
+  def insert_position_matrix(player, positionX, positionY)
+    @matrix[positionX][positionY] = player
   end
 
   def full?
@@ -35,8 +34,8 @@ class Board
     [@matrix[0][2], @matrix[1][1], @matrix[2][0]]
   end
 
-  def matrix_position_clear?(posX, posY)
-    @matrix[posX][posY] == 0
+  def matrix_position_clear?(positionX, positionY)
+    @matrix[positionX][positionY] == 0
   end
 
   def check_vector?(vector,player)
@@ -56,27 +55,18 @@ class Board
   end
 
   def check_diagonal?(player)
-    check_vector(@matrix.getDiagonal, player)
+    check_vector?(get_diagonal, player)
   end
 
   def check_anti_diagonal?(player)
-    check_vector(@matrix.getAntiDiagonal, player)
+    check_vector?(get_anti_diagonal, player)
   end
 
   def check_winner?(player)
-      check_winner_row(player) ||
-      check_winner_col(player) ||
-      check_diagonal(player) ||
-      check_anti_diagonal(player)
+      check_winner_row?(player) ||
+      check_winner_col?(player) ||
+      check_diagonal?(player) ||
+      check_anti_diagonal?(player)
   end
-
-  def printBoard
-    p "-------"
-    @matrix.array.each do |vector|
-      p vector
-    end
-    return "-------"
-  end
-
 
 end
