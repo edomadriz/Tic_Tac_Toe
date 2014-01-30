@@ -13,7 +13,7 @@ class Board
   end
 
   def full?
-    !@matrix.flatten().include(0)
+    !@matrix.flatten().include?(0)
   end
 
   def clear_matrix

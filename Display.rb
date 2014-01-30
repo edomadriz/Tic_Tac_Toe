@@ -1,14 +1,18 @@
 require_relative 'Board.rb'
+require_relative 'Game.rb'
 
 class Display
-  attr_reader :board
-  def initialize(board)
-    @board = board
+  attr_reader :board, :game
+  def initialize(game)
+    @board = game.board
+    @game = game
+
   end
 
   def welcome_message
     p "Welcome to Tic_Tac_Toe"
     p "Enjoy playing"
+    p "----------------------"
   end
 
   def show_options_main_menu
@@ -47,6 +51,10 @@ class Display
   def end_game
     p "Thank you for playing"
     p "See you later"
+  end
+
+  def current_player
+    p "Current player is #{@game.player}"
   end
 
 end
