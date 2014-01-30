@@ -11,11 +11,13 @@ class Board
     ]
   end
 
-  def insert_Position(elem, posX, posY)
+  def insert_position(elem, posX, posY)
     @matrix[posX][posY] = elem
   end
 
-  
+  def full?
+    !@matrix.flatten().include(0)
+  end
 
   def check_vector?(vector,player)
     vector.uniq.size == 1 && vector.uniq.first == player
