@@ -3,8 +3,12 @@ class Board
   #Atributes
   attr_accessor :matrix
   #Initializer
-  def initialize()
-    @matrix = MultiArray.new(3,3)
+  def initialize
+    @matrix = [
+      [0,0,0],
+      [0,0,0],
+      [0,0,0]
+    ]
   end
 
   def check_vector?(vector,player)
@@ -54,5 +58,5 @@ class Board
     return "-------"
   end
 
-end
 
+end
