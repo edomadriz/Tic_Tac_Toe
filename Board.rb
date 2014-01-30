@@ -11,6 +11,12 @@ class Board
     ]
   end
 
+  def insert_Position(elem, posX, posY)
+    @matrix[posX][posY] = elem
+  end
+
+  
+
   def check_vector?(vector,player)
     vector.uniq.size == 1 && vector.uniq.first == player
   end
