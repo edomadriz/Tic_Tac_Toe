@@ -44,14 +44,14 @@ class Board
   end
 
   def check_winner_row?(player)
-    @matrix.array.each {|vector|
-       return true if check_vector(vector, player)}
+    @matrix.each {|vector|
+       return true if check_vector?(vector, player)}
     return false
   end
 
   def check_winner_col?(player)
-    @matrix.array.transpose.each {|vector|
-        return true if check_vector(vector, player)}
+    @matrix.transpose.each {|vector|
+        return true if check_vector?(vector, player)}
     return false
   end
 
