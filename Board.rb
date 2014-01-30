@@ -35,6 +35,9 @@ class Board
     [@matrix[0][2], @matrix[1][1], @matrix[2][0]]
   end
 
+  def matrix_position_clear?(posX, posY)
+    @matrix[posX][posY] == 0
+  end
 
   def check_vector?(vector,player)
     vector.uniq.size == 1 && vector.uniq.first == player
