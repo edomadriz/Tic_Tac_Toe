@@ -1,7 +1,5 @@
 class Board
-  #Atributes
   attr_accessor :matrix
-  #Initializer
   def initialize
     @matrix = [
       [0,0,0],

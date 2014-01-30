@@ -14,6 +14,14 @@ class Display
     gets.to_i
   end
 
+  def show_options_ingame_menu
+    p "Please select an option"
+    p "1 Next move"
+    p "2 Restart game"
+    p "3 Quit"
+    gets.to_i
+  end
+
   def get_play_row
     p "Type the row number starting from 0"
     gets.to_i
