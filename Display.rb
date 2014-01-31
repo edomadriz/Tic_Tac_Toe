@@ -10,6 +10,7 @@ class Display
   end
 
   def welcome_message
+    system 'clear'
     p "----------------------"
     p "Welcome to Tic_Tac_Toe"
     p "Enjoy playing"
@@ -50,12 +51,17 @@ class Display
   end
 
   def end_game
+    system 'clear'
+    p "---------------------"
     p "Thank you for playing"
     p "See you later"
+    p "---------------------"
   end
 
   def current_player
+    p "--------------------"
     p "Current player is #{@game.player}"
+    p "--------------------"
   end
 
   def game_tied

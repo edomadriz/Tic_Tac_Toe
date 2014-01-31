@@ -12,8 +12,14 @@ class Game
   def start_game
     display.welcome_message
     option = display.show_options_main_menu
-    display.print_board
-    option == 1 ? play : display.end_game
+    case option 
+    when 1 
+      system 'clear'
+      display.print_board
+      option == 1 ? play : display.end_game
+    when 2 
+      display.end_game
+    end
   end
 
   def play
@@ -51,12 +57,15 @@ class Game
     if board.matrix_position_clear?(row, column)
       @board.insert_position_matrix(@player, row, column)
       switchPlayer
+      system 'clear'
       display.print_board
     else
+      system 'clear'
+      display.print_board
       display.invalid_position
     end
-  end
 
+  end
   def ask_for_row
     while true do
       number = display.get_play_row
