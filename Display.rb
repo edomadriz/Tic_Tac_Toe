@@ -13,22 +13,22 @@ class Display
     system 'clear'
     p "----------------------"
     p "Welcome to Tic_Tac_Toe"
-    p "Enjoy playing"
+    p "Enjoy playing         "
     p "----------------------"
   end
 
   def show_options_main_menu
     p "Please select an option"
-    p "1 New Game"
-    p "2 Quit"
+    p "1 New Game             "
+    p "2 Quit                 "
     gets.to_i
   end
 
   def show_options_ingame_menu
     p "Please select an option"
-    p "1 Next move"
-    p "2 Restart game"
-    p "3 Quit"
+    p "1 Next move            "
+    p "2 Restart game         "
+    p "3 Quit                 "
     gets.to_i
   end
 
@@ -62,7 +62,7 @@ class Display
     system 'clear'
     p "---------------------"
     p "Thank you for playing"
-    p "See you later"
+    p "See you later        "
     p "---------------------"
   end
 
@@ -74,14 +74,14 @@ class Display
 
   def game_tied
     p "------------------"
-    p "Game Tied"
+    p "Game Tied         "
     p "There is no winner"
     p "------------------"
   end
 
   def invalid_position
     p "Position is not valid"
-    p "Try Again"
+    p "Try Again            "
   end
 
   def winner

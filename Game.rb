@@ -34,7 +34,10 @@ class Game
       when 3
         display.end_game
         exit
+      else
+        display.invalid_number
       end
+
     end
     display.game_tied
     @board.clear_matrix
