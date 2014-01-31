@@ -43,7 +43,15 @@ class Display
   end
 
   def print_board
-    board.matrix.each {|vector| p vector}
+   p "            Column      "
+   p "      |  0  |  1  |  2  "
+   p "    --|-----|-----|-----"
+   p "    0 |  #{change_value(board.matrix[0][0])}  |  #{change_value(board.matrix[0][1])}  |  #{change_value(board.matrix[0][2])}  "
+   p "    --|-----|-----|-----"
+   p "Row 1 |  #{change_value(board.matrix[1][0])}  |  #{change_value(board.matrix[1][1])}  |  #{change_value(board.matrix[1][2])}  "
+   p "    --|-----|-----|-----"
+   p "    2 |  #{change_value(board.matrix[2][0])}  |  #{change_value(board.matrix[2][1])}  |  #{change_value(board.matrix[2][2])}  "
+   p "    --|-----|-----|-----"
   end
 
   def invalid_number
@@ -59,9 +67,9 @@ class Display
   end
 
   def current_player
-    p "--------------------"
-    p "Current player is #{@game.player}"
-    p "--------------------"
+    p "------------------------------------"
+    p "Current player is #{@game.player} represented as #{change_value(@game.player)}"
+    p "------------------------------------"
   end
 
   def game_tied
@@ -76,4 +84,23 @@ class Display
     p "Try Again"
   end
 
+  def winner
+    p "------------------"
+    p "CONGRATULATIONS!!!"
+    p "Winner is Player #{@game.player}"
+    p "------------------"
+  end
+
+  private
+
+  def change_value(value)
+    case value
+    when 0 
+      return " "
+    when 1
+      return "X"
+    when 2
+      return "O"
+    end
+  end
 end

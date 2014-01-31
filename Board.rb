@@ -7,7 +7,6 @@ class Board
       [0,0,0]
     ]
   end
-
   def insert_position_matrix(player, positionX, positionY)
     @matrix[positionX][positionY] = player
   end
