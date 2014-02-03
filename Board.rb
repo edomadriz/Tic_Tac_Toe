@@ -21,7 +21,7 @@ class Board
 
   def check_winner?(player)
       check_winner_row?(player) || check_winner_col?(player) ||
-      check_diagonal?(player) || check_anti_diagonal?(player)
+      check_diagonal?(player)
   end
 
  # private
@@ -48,8 +48,8 @@ class Board
     result.include?(true)
   end
 
-  def check_diagonal?(player, ent1, ent2)
-    check_vector?(get_diagonal(ent1,ent2), player)
+  def check_diagonal?(player)
+    check_vector?(get_diagonal(2,0), player) || check_vector?(get_diagonal(0,2),player)
   end
 
 end
