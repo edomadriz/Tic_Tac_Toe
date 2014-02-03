@@ -26,18 +26,14 @@ class Board
       check_anti_diagonal?(player)
   end
 
-  private
+ # private
 
   def initialize_matrix
     Array.new(3) {Array.new(3) { nil }}
   end
 
   def get_diagonal(ent1, ent2)
-    [@matrix [0][ent], @matrix[1][1], @matrix[2][ent2]]
-  end
-
-  def get_anti_diagonal
-    [@matrix[0][2], @matrix[1][1], @matrix[2][0]]
+    [@matrix [0][ent1], @matrix[1][1], @matrix[2][ent2]]
   end
 
   def check_vector?(vector,player)
@@ -45,14 +41,16 @@ class Board
   end
 
   def check_winner_row?(player)
-    @matrix.each {|vector|
-      return true if check_vector?(vector, player)}
+    @matrix.each do |vector|
+      return true if check_vector?(vector, player)
+    end
     return false
   end
 
   def check_winner_col?(player)
-    @matrix.transpose.each {|vector|
-      return true if check_vector?(vector, player)}
+    @matrix.transpose.each do|vector|
+      return true if check_vector?(vector, player)
+    end
     return false
   end
 
