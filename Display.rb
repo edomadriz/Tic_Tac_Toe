@@ -2,12 +2,6 @@ require_relative 'Board.rb'
 require_relative 'Game.rb'
 
 class Display
-  attr_reader :board, :game
-  def initialize(game)
-    @board = game.board
-    @game = game
-
-  end
 
   def welcome_message
     p "Welcome to Tic_Tac_Toe"
@@ -40,15 +34,15 @@ class Display
     gets.to_i
   end
 
-  def print_board
+  def print_board(matrix)
    p "            Column      "
    p "      |  0  |  1  |  2  "
    p "    --|-----|-----|-----"
-   p "    0 |  #{change_value(board.matrix[0][0])}  |  #{change_value(board.matrix[0][1])}  |  #{change_value(board.matrix[0][2])}  "
+   p "    0 |  #{matrix[0][0]}  |  #{matrix[0][1]}  |  #{matrix[0][2]}  "
    p "    --|-----|-----|-----"
-   p "Row 1 |  #{change_value(board.matrix[1][0])}  |  #{change_value(board.matrix[1][1])}  |  #{change_value(board.matrix[1][2])}  "
+   p "Row 1 |  #{matrix[1][0]}  |  #{matrix[1][1]}  |  #{matrix[1][2]}  "
    p "    --|-----|-----|-----"
-   p "    2 |  #{change_value(board.matrix[2][0])}  |  #{change_value(board.matrix[2][1])}  |  #{change_value(board.matrix[2][2])}  "
+   p "    2 |  #{matrix[2][0]}  |  #{matrix[2][1]}  |  #{matrix[2][2]}  "
    p "    --|-----|-----|-----"
   end
 
@@ -64,9 +58,9 @@ class Display
     p "---------------------"
   end
 
-  def current_player
+  def current_player(player)
     p "------------------------------------"
-    p "Current player is #{@game.player} represented as #{change_value(@game.player)}"
+    p "Current player is #{player}"
     p "------------------------------------"
   end
 
@@ -82,10 +76,10 @@ class Display
     p "Try Again            "
   end
 
-  def winner
+  def winner(player)
     p "------------------"
     p "CONGRATULATIONS!!!"
-    p "Winner is Player #{@game.player}"
+    p "Winner is Player #{player}"
     p "------------------"
   end
 end
