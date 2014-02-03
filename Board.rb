@@ -20,10 +20,8 @@ class Board
   end
 
   def check_winner?(player)
-      check_winner_row?(player) ||
-      check_winner_col?(player) ||
-      check_diagonal?(player) ||
-      check_anti_diagonal?(player)
+      check_winner_row?(player) || check_winner_col?(player) ||
+      check_diagonal?(player) || check_anti_diagonal?(player)
   end
 
  # private
@@ -41,25 +39,17 @@ class Board
   end
 
   def check_winner_row?(player)
-    @matrix.each do |vector|
-      return true if check_vector?(vector, player)
-    end
-    return false
+    result = @matrix.map {|vector| check_vector?(vector, player)}
+    result.include?(true)
   end
 
   def check_winner_col?(player)
-    @matrix.transpose.each do|vector|
-      return true if check_vector?(vector, player)
-    end
-    return false
+    result = matrix.transpose.map {|vector| check_vector?(vector, player)}
+    result.include?(true)
   end
 
-  def check_diagonal?(player)
-    check_vector?(get_diagonal(0,2), player)
-  end
-
-  def check_anti_diagonal?(player)
-    check_vector?(get_anti_diagonal(2,0), player)
+  def check_diagonal?(player, ent1, ent2)
+    check_vector?(get_diagonal(ent1,ent2), player)
   end
 
 end
