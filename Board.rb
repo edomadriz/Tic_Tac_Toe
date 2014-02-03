@@ -1,11 +1,7 @@
 class Board
   attr_accessor :matrix
   def initialize
-    @matrix = [
-      [0,0,0],
-      [0,0,0],
-      [0,0,0]
-    ]
+    @matrix = initialize_matrix
   end
   def insert_position_matrix(player, positionX, positionY)
     @matrix[positionX][positionY] = player
@@ -16,11 +12,7 @@ class Board
   end
 
   def clear_matrix
-    @matrix = [
-      [0,0,0],
-      [0,0,0],
-      [0,0,0]
-    ]
+    @matrix = initialize_matrix
   end
 
   def matrix_position_clear?(positionX, positionY)
@@ -28,7 +20,7 @@ class Board
   end
 
   def check_winner?(player)
-    check_winner_row?(player) ||
+      check_winner_row?(player) ||
       check_winner_col?(player) ||
       check_diagonal?(player) ||
       check_anti_diagonal?(player)
@@ -36,7 +28,11 @@ class Board
 
   private
 
-  def get_diagonal
+  def initialize_matrix
+    Array.new(3) {Array.new(3) { nil }}
+  end
+
+  def get_diagonal 
     [@matrix [0][0], @matrix[1][1], @matrix[2][2]]
   end
 
