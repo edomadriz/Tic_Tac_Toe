@@ -3,20 +3,20 @@ class Board
   def initialize
     @matrix = initialize_matrix
   end
-  def insert_position_matrix(player, positionX, positionY)
-    @matrix[positionX][positionY] = player
+  def insert_At(player, x, y)
+    @matrix[x][y] = player
   end
 
   def full?
-    !@matrix.flatten().include?(0)
+    !@matrix.flatten().include?(nil)
   end
 
   def clear_matrix
     @matrix = initialize_matrix
   end
 
-  def matrix_position_clear?(positionX, positionY)
-    @matrix[positionX][positionY] == 0
+  def position_available?(x, y)
+    @matrix[x][y] == nil
   end
 
   def check_winner?(player)
@@ -32,8 +32,8 @@ class Board
     Array.new(3) {Array.new(3) { nil }}
   end
 
-  def get_diagonal 
-    [@matrix [0][0], @matrix[1][1], @matrix[2][2]]
+  def get_diagonal(ent1, ent2)
+    [@matrix [0][ent], @matrix[1][1], @matrix[2][ent2]]
   end
 
   def get_anti_diagonal
@@ -57,11 +57,11 @@ class Board
   end
 
   def check_diagonal?(player)
-    check_vector?(get_diagonal, player)
+    check_vector?(get_diagonal(0,2), player)
   end
 
   def check_anti_diagonal?(player)
-    check_vector?(get_anti_diagonal, player)
+    check_vector?(get_anti_diagonal(2,0), player)
   end
 
 end
