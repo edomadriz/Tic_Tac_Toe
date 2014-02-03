@@ -10,8 +10,6 @@ class Display
   end
 
   def welcome_message
-    system 'clear'
-    p "----------------------"
     p "Welcome to Tic_Tac_Toe"
     p "Enjoy playing         "
     p "----------------------"
@@ -89,18 +87,5 @@ class Display
     p "CONGRATULATIONS!!!"
     p "Winner is Player #{@game.player}"
     p "------------------"
-  end
-
-  private
-
-  def change_value(value)
-    case value
-    when 0 
-      return " "
-    when 1
-      return "X"
-    when 2
-      return "O"
-    end
   end
 end
