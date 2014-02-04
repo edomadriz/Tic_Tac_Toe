@@ -11,28 +11,9 @@ class Display
     print_board(board)
   end
 
-  def show_options_main_menu
-    p "Please select an option"
-    p "1 New Game             "
-    p "2 Quit                 "
-    gets.to_i
-  end
-
-  def show_options_ingame_menu
-    p "Please select an option"
-    p "1 Next move            "
-    p "2 Restart game         "
-    p "3 Quit                 "
-    gets.to_i
-  end
-
-  def get_play_row
-    p "Type the row number starting from 0"
-    gets.to_i
-  end
-
-  def get_play_column
-    p "Type the column number starting from 0"
+  def get_player_move(player)
+    p "Player #{player}"
+    p "Please type the position you want to play"
     gets.to_i
   end
 
@@ -58,12 +39,6 @@ class Display
     p "---------------------"
   end
 
-  def current_player(player)
-    p "------------------------------------"
-    p "Current player is #{player}"
-    p "------------------------------------"
-  end
-
   def game_tied
     p "------------------"
     p "Game Tied         "
@@ -72,8 +47,7 @@ class Display
   end
 
   def invalid_position
-    p "Position is not valid"
-    p "Try Again            "
+    p "Position is not valid, try again"
   end
 
   def winner(player)
