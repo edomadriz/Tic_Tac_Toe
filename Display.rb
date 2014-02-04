@@ -37,15 +37,13 @@ class Display
   end
 
   def print_board(matrix)
-   p "            Column      "
-   p "      |  0  |  1  |  2  "
-   p "    --|-----|-----|-----"
-   p "    0 |  #{matrix[0][0]}  |  #{matrix[0][1]}  |  #{matrix[0][2]}  "
-   p "    --|-----|-----|-----"
-   p "Row 1 |  #{matrix[1][0]}  |  #{matrix[1][1]}  |  #{matrix[1][2]}  "
-   p "    --|-----|-----|-----"
-   p "    2 |  #{matrix[2][0]}  |  #{matrix[2][1]}  |  #{matrix[2][2]}  "
-   p "    --|-----|-----|-----"
+   p "|-----|-----|-----|     Position"
+   p "|  #{fill_nil(matrix[0][0])}  |  #{fill_nil(matrix[0][1])}  |  #{fill_nil(matrix[0][2])}  |     |1|2|3|"
+   p "|-----|-----|-----|            "
+   p "|  #{fill_nil(matrix[1][0])}  |  #{fill_nil(matrix[1][1])}  |  #{fill_nil(matrix[1][2])}  |     |4|5|6|"
+   p "|-----|-----|-----|            "
+   p "|  #{fill_nil(matrix[2][0])}  |  #{fill_nil(matrix[2][1])}  |  #{fill_nil(matrix[2][2])}  |     |7|8|9|"
+   p "|-----|-----|-----|            "
   end
 
   def invalid_number
@@ -83,5 +81,10 @@ class Display
     p "CONGRATULATIONS!!!"
     p "Winner is Player #{player}"
     p "------------------"
+  end
+
+
+  def fill_nil(element)
+    element.nil? ? " " : element
   end
 end

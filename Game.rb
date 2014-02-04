@@ -6,12 +6,12 @@ class Game
   attr_reader :display
   def initialize
     @board = Board.new
-    @display = Display.new(self)
+    @display = Display.new()
     @current_player = "X"
   end
 
-  def start_game
-    display.start_game_message
+  def start_game2
+    display.start_game_message(@board.matrix)
     
   end
 
