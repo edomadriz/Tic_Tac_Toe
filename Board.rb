@@ -24,7 +24,15 @@ class Board
       check_diagonal?(player)
   end
 
- # private
+  def get_position_in_matrix(number)
+    if number < 4
+      [] << 0 << (number - 1) % 3
+    else
+      number < 7 ? [] << 1 << (number - 1) % 3 : [] << 2 << (number - 1) % 3
+    end
+  end
+
+ private
 
   def initialize_matrix
     Array.new(3) {Array.new(3) { nil }}
@@ -51,5 +59,4 @@ class Board
   def check_diagonal?(player)
     check_vector?(get_diagonal(2,0), player) || check_vector?(get_diagonal(0,2),player)
   end
-
 end

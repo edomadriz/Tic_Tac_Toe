@@ -7,8 +7,13 @@ class Game
   def initialize
     @board = Board.new
     @display = Display.new(self)
-    @player = 1
+    @current_player = "X"
   end
+
+  def start_game
+    display.welcome_message
+  end
+
   def start_game
     display.welcome_message
     option = display.show_options_main_menu
@@ -105,6 +110,4 @@ class Game
     entry = display.show_options_main_menu
     entry == 1
   end
-
-
 end
