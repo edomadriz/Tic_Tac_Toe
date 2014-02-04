@@ -57,6 +57,7 @@ class Display
     p "------------------"
   end
 
+  private
 
   def fill_nil(element)
     element.nil? ? " " : element

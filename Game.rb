@@ -12,6 +12,8 @@ class Game
 
   def start_game2
     display.start_game_message(@board.matrix)
+    position = display.get_player_move(@current_player)
+    position
     
   end
 
@@ -55,60 +57,6 @@ class Game
   private 
 
   def switch_player()
-   @player == 1 ? @player = 2 : @player = 1
-  end
-
-  def is_valid_entry?(number)
-    number < 3 && number >= 0
-  end
-
-  def player_make_play
-    row = ask_for_row
-    column = ask_for_column
-    if board.matrix_position_clear?(row, column)
-      @board.insert_position_matrix(@player, row, column)
-      system 'clear'
-      display.print_board
-      if @board.check_winner?(@player)
-        display.winner
-        @board.clear_matrix
-        @player = 1
-        gets
-        start_game
-      end
-      switchPlayer
-    else
-      system 'clear'
-      display.print_board
-      display.invalid_position
-    end
-
-  end
-  def ask_for_row
-    while true do
-      number = display.get_play_row
-      if is_valid_entry?(number)
-        return number
-      else
-        display.invalid_number
-      end
-    end
-  end
-
-
-  def ask_for_column
-    while true do
-      number = display.get_play_column
-      if is_valid_entry?(number)
-        return number
-      else
-        display.invalid_number
-      end
-    end
-  end
-
-  def newGame?
-    entry = display.show_options_main_menu
-    entry == 1
+   @current_player == "X" ? @current_player = "O" : @current_player = "X"
   end
 end
