@@ -3,10 +3,12 @@ require_relative 'Game.rb'
 
 class Display
 
-  def welcome_message
+  def start_game_message(board)
+    system 'clear'
     p "Welcome to Tic_Tac_Toe"
     p "Enjoy playing         "
     p "----------------------"
+    print_board(board)
   end
 
   def show_options_main_menu

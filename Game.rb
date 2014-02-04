@@ -11,7 +11,8 @@ class Game
   end
 
   def start_game
-    display.welcome_message
+    display.start_game_message
+    
   end
 
   def start_game
