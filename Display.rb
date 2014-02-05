@@ -8,10 +8,10 @@ class Display
     p "Welcome to Tic_Tac_Toe"
     p "Enjoy playing         "
     p "----------------------"
-    print_board(board)
   end
 
-  def get_player_move(player)
+  def get_player_move(player, matrix)
+    print_board(matrix)
     p "Player #{player}"
     p "Please type the position you want to play"
     gets.to_i
@@ -39,7 +39,9 @@ class Display
     p "---------------------"
   end
 
-  def game_tied
+  def game_tied(matrix)
+    system 'clear'
+    print_board(matrix)
     p "------------------"
     p "Game Tied         "
     p "There is no winner"
@@ -47,6 +49,7 @@ class Display
   end
 
   def invalid_position
+    system 'clear'
     p "Position is not valid, try again"
   end
 

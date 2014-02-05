@@ -12,7 +12,7 @@ class Game
 
   def start_game
     display.start_game_message(@board.matrix)
-    insert_move(display.get_player_move(@current_player))
+    insert_move(display.get_player_move(@current_player, @board.matrix))
   end
 
   def get_move(move)
@@ -30,14 +30,27 @@ class Game
 
   def invalid_entry_position
     display.invalid_position
-    get_move(display.get_player_move(@current_player))
+    get_move(display.get_player_move(@current_player, @board.matrix))
   end
 
   def board_insertion(position)
     matrix_position = board.get_position_in_matrix(position)
     @board.insert_At(@current_player, matrix_position.first, matrix_position.last)
-    display.print_board(@board.matrix)
+    check_for_tie
   end
+
+  def check_for_tie
+    @board.full? ? display.game_tied(@board.matrix) : next_move
+  end
+
+  def next_move
+    system 'clear'
+    switch_player
+    insert_move(display.get_player_move(@current_player, @board.matrix))
+  end
+
+
+
 
   def valid_entry_position?(position)
     matrix_position = board.get_position_in_matrix(position)
