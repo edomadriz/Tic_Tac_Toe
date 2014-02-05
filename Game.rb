@@ -12,9 +12,11 @@ class Game
 
   def start_game2
     display.start_game_message(@board.matrix)
-    position = display.get_player_move(@current_player)
-    position
-    
+    insert_move(display.get_player_move(@current_player))
+  end
+
+  def insert_move(move)
+     
   end
 
   def start_game
@@ -28,9 +30,7 @@ class Game
     when 2 
       display.end_game
     end
-  end
 
-  def play
     while !@board.full?
       display.current_player
       option = display.show_options_ingame_menu
@@ -55,8 +55,13 @@ class Game
   end
 
   private 
+  
+  def insert_move
+    while true
 
-  def switch_player()
+    end 
+  end
+  def switch_player
    @current_player == "X" ? @current_player = "O" : @current_player = "X"
   end
 end
