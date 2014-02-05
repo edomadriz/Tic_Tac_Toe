@@ -59,10 +59,6 @@ class Display
 
   private
 
-  def valid_entry?(number)
-    number < 10 && number > 0
-  end
-
   def fill_nil(element)
     element.nil? ? " " : element
   end

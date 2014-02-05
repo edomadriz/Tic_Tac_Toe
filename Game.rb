@@ -15,52 +15,29 @@ class Game
     insert_move(display.get_player_move(@current_player))
   end
 
+  def get_move(move)
+     valid_entry?(move) ? insert_move(move) : invalid_entry_position
+  end
+
+  def invalid_entry_position
+    display.invalid_position
+    get_move(display.get_player_move(@current_player))
+  end
+
   def insert_move(move)
-     
+    
   end
 
-  def start_game
-    display.welcome_message
-    option = display.show_options_main_menu
-    case option 
-    when 1 
-      system 'clear'
-      display.print_board
-      play
-    when 2 
-      display.end_game
-    end
+  private
 
-    while !@board.full?
-      display.current_player
-      option = display.show_options_ingame_menu
-      case option
-      when 1
-        player_make_play
-      when 2
-       start_game
-      when 3
-        display.end_game
-        exit
-      else
-        display.invalid_number
-      end
-
-    end
-    display.game_tied
-    @board.clear_matrix
-    @player = 1
-    gets
-    start_game
+  def valid_entry_position(position)
+    
   end
 
-  private 
-  
-  def insert_move
-    while true
-
-    end 
+  def valid_entry?(number)
+    number < 10 && number > 0
   end
+
   def switch_player
    @current_player == "X" ? @current_player = "O" : @current_player = "X"
   end
