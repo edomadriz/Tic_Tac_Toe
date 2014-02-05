@@ -31,8 +31,9 @@ class Display
     p "Invalid number, try again"
   end
 
-  def end_game
+  def end_game(matrix)
     system 'clear'
+    print_board(matrix)
     p "---------------------"
     p "Thank you for playing"
     p "See you later        "
@@ -53,7 +54,9 @@ class Display
     p "Position is not valid, try again"
   end
 
-  def winner(player)
+  def winner(player, matrix)
+    system 'clear'
+    print_board(matrix)
     p "------------------"
     p "CONGRATULATIONS!!!"
     p "Winner is Player #{player}"

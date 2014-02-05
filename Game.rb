@@ -2,8 +2,7 @@ require_relative 'Display.rb'
 require_relative 'Board.rb'
 class Game
 
-  attr_accessor :board, :player
-  attr_reader :display
+  attr_reader :board, :player, :display
   def initialize
     @board = Board.new
     @display = Display.new
@@ -14,6 +13,8 @@ class Game
     display.start_game_message(@board.matrix)
     insert_move(display.get_player_move(@current_player, @board.matrix))
   end
+
+  private
 
   def get_move(move)
      valid_entry?(move) ? insert_move(move) : invalid_entry_number
@@ -36,7 +37,22 @@ class Game
   def board_insertion(position)
     matrix_position = board.get_position_in_matrix(position)
     @board.insert_At(@current_player, matrix_position.first, matrix_position.last)
+    check_for_winner
     check_for_tie
+  end
+
+  def check_for_winner
+    if @board.check_winner?(@current_player)
+     display.winner(@current_player, @board.matrix)
+     gets
+     game_end
+    end
+  end
+
+  def game_end
+    system 'clear'
+    display.end_game(@board.matrix)
+    exit
   end
 
   def check_for_tie
@@ -48,9 +64,6 @@ class Game
     switch_player
     insert_move(display.get_player_move(@current_player, @board.matrix))
   end
-
-
-
 
   def valid_entry_position?(position)
     matrix_position = board.get_position_in_matrix(position)
