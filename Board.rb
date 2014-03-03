@@ -8,7 +8,7 @@ class Board
   end
 
   def full?
-    !@matrix.flatten().include?(nil)
+    !matrix.flatten().include?(" ")
   end
 
   def clear_matrix
@@ -16,7 +16,7 @@ class Board
   end
 
   def position_available?(x, y)
-    @matrix[x][y] == nil
+    @matrix[x][y] == " "
   end
 
   def check_winner?(player)
@@ -31,11 +31,11 @@ class Board
  private
 
   def initialize_matrix
-    Array.new(3) {Array.new(3) {}}
+    Array.new(3) {Array.new(3) {" "}}
   end
 
   def get_diagonal(ent1, ent2)
-    [@matrix [0][ent1], @matrix[1][1], @matrix[2][ent2]]
+    [matrix[0][ent1], matrix[1][1], matrix[2][ent2]]
   end
 
   def check_vector?(vector,player)
@@ -43,7 +43,7 @@ class Board
   end
 
   def check_winner_row?(player)
-    result = @matrix.map {|vector| check_vector?(vector, player)}
+    result = matrix.map {|vector| check_vector?(vector, player)}
     result.include?(true)
   end
 

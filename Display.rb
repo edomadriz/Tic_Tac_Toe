@@ -3,7 +3,7 @@ require_relative 'Game.rb'
 
 class Display
 
-  def start_game_message(board)
+  def start_game_message
     system 'clear'
     p "Welcome to Tic_Tac_Toe"
     p "Enjoy playing         "
@@ -19,11 +19,11 @@ class Display
 
   def print_board(matrix)
    p "|-----|-----|-----|     Position"
-   p "|  #{fill_nil(matrix[0][0])}  |  #{fill_nil(matrix[0][1])}  |  #{fill_nil(matrix[0][2])}  |     |1|2|3|"
+   p "|  #{matrix[0][0]}  |  #{matrix[0][1]}  |  #{matrix[0][2]}  |     |1|2|3|"
    p "|-----|-----|-----|            "
-   p "|  #{fill_nil(matrix[1][0])}  |  #{fill_nil(matrix[1][1])}  |  #{fill_nil(matrix[1][2])}  |     |4|5|6|"
+   p "|  #{matrix[1][0]}  |  #{matrix[1][1]}  |  #{matrix[1][2]}  |     |4|5|6|"
    p "|-----|-----|-----|            "
-   p "|  #{fill_nil(matrix[2][0])}  |  #{fill_nil(matrix[2][1])}  |  #{fill_nil(matrix[2][2])}  |     |7|8|9|"
+   p "|  #{matrix[2][0]}  |  #{matrix[2][1]}  |  #{matrix[2][2]}  |     |7|8|9|"
    p "|-----|-----|-----|            "
   end
 
@@ -64,8 +64,4 @@ class Display
   end
 
   private
-
-  def fill_nil(element)
-    element.nil? ? " " : element
-  end
 end

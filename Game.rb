@@ -10,7 +10,7 @@ class Game
   end
 
   def start_game
-    display.start_game_message(@board.matrix)
+    display.start_game_message
     insert_move(display.get_player_move(@current_player, @board.matrix))
   end
 
