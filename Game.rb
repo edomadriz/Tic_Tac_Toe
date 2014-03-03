@@ -35,8 +35,8 @@ class Game
   end
 
   def board_insertion(position)
-    matrix_position = board.get_position_in_matrix(position)
-    @board.insert_At(@current_player, matrix_position.first, matrix_position.last)
+    matrix_position = board.get_position(position)
+    @board.insert_at(@current_player, matrix_position.first, matrix_position.last)
     check_for_winner
     check_for_tie
   end
@@ -66,7 +66,7 @@ class Game
   end
 
   def valid_entry_position?(position)
-    matrix_position = board.get_position_in_matrix(position)
+    matrix_position = board.get_position(position)
     board.position_available?(matrix_position.first, matrix_position.last)
   end
 

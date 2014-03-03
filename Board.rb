@@ -3,7 +3,7 @@ class Board
   def initialize
     @matrix = initialize_matrix
   end
-  def insert_At(player, x, y)
+  def insert_at(player, x, y)
     @matrix[x][y] = player
   end
 
@@ -24,12 +24,8 @@ class Board
       check_diagonal?(player)
   end
 
-  def get_position_in_matrix(number)
-    if number < 4
-      [] << 0 << (number - 1) % 3
-    else
-      number < 7 ? [] << 1 << (number - 1) % 3 : [] << 2 << (number - 1) % 3
-    end
+  def get_position(number)
+    [] << (number - 1)/3 << (number - 1)%3
   end
 
  private
