@@ -31,7 +31,7 @@ class Board
  private
 
   def initialize_matrix
-    Array.new(3) {Array.new(3) { nil }}
+    Array.new(3) {Array.new(3) {}}
   end
 
   def get_diagonal(ent1, ent2)
