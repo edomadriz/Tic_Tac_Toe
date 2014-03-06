@@ -62,6 +62,4 @@ class Display
     p "Winner is Player #{player}"
     p "------------------"
   end
-
-  private
 end
