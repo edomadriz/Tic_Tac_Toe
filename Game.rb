@@ -1,24 +1,27 @@
 require_relative 'Display.rb'
 require_relative 'Board.rb'
-class Game2
+class Game
 
   attr_reader :board, :player, :display
   def initialize
     @board = Board.new
     @display = Display.new
-    @current_player = "O"
+    @current_player = 0
   end
 
   def start
     display.start_game_message
     while game_finished?
-      switch_player
-      insert_move(display.get_player_move(@current_player, @board.matrix))
+      play_move
     end
     check_finisher
   end
 
   private
+
+  def play_move
+    insert_move(display.get_player_move(get_player(@current_player), @board.matrix))
+  end
 
   def game_finished?
    check_for_winner? == true && check_for_tie? == true ? false : check_for_winner? == check_for_tie?
@@ -29,7 +32,8 @@ class Game2
   end
 
   def invalid_entry_number
-    display.invalid_number
+    system 'clear'
+    display.invalid_position
   end
 
   def valid_entry?(number)
@@ -37,7 +41,7 @@ class Game2
   end
 
   def check_for_winner?
-    @board.check_winner?(@current_player)
+    @board.check_winner?(get_player(@current_player - 1))
   end
 
   def check_for_tie?
@@ -46,7 +50,9 @@ class Game2
 
   def board_insertion(position)
     matrix_position = board.get_position(position)
-    @board.insert_at(@current_player, matrix_position.first, matrix_position.last)
+    @board.insert_at(get_player(@current_player), matrix_position.first, matrix_position.last)
+    @current_player = @current_player.succ
+    system 'clear'
   end
 
   def check_finisher
@@ -59,7 +65,7 @@ class Game2
   end
 
   def declare_winner
-    display.winner(@current_player, @board.matrix)
+    display.winner(get_player(@current_player - 1), @board.matrix)
     gets
     game_end
   end
@@ -75,7 +81,7 @@ class Game2
     board.position_available?(matrix_position.first, matrix_position.last)
   end
 
-  def switch_player
-    @current_player == "X" ? @current_player = "O" : @current_player = "X"
+  def get_player(player)
+    player.even? ? "X" : "O"
   end
 end

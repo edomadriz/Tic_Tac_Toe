@@ -27,10 +27,6 @@ class Display
    p "|-----|-----|-----|            "
   end
 
-  def invalid_number
-    p "Invalid number, try again"
-  end
-
   def end_game(matrix)
     system 'clear'
     print_board(matrix)
