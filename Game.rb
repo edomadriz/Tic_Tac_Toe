@@ -1,8 +1,10 @@
 require_relative 'Display.rb'
 require_relative 'Board.rb'
+
 class Game
 
   attr_reader :board, :player, :display
+
   def initialize
     @board = Board.new
     @display = Display.new
@@ -11,20 +13,18 @@ class Game
 
   def start
     display.start_game_message
-    while game_finished?
-      play_move
-    end
+    play_move while game_finished?
     check_finisher
   end
 
   private
 
   def play_move
-    insert_move(display.get_player_move(get_player(@current_player), @board.matrix))
+    insert_move(display.get_player_move(get_player(@current_player), board.matrix))
   end
 
   def game_finished?
-   check_for_winner? == true && check_for_tie? == true ? false : check_for_winner? == check_for_tie?
+    check_for_winner? == true && check_for_tie? == true ? false : check_for_winner? == check_for_tie?
   end
 
   def insert_move(position)
@@ -50,7 +50,7 @@ class Game
 
   def board_insertion(position)
     matrix_position = board.get_position(position)
-    @board.insert_at(get_player(@current_player), matrix_position.first, matrix_position.last)
+    @board.insert_player_at(get_player(@current_player), matrix_position.first, matrix_position.last)
     @current_player = @current_player.succ
     system 'clear'
   end
@@ -84,4 +84,5 @@ class Game
   def get_player(player)
     player.even? ? "X" : "O"
   end
+
 end

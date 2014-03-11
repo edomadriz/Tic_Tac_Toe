@@ -18,13 +18,13 @@ class Display
   end
 
   def print_board(matrix)
-   p "|-----|-----|-----|     Position"
-   p "|  #{matrix[0][0]}  |  #{matrix[0][1]}  |  #{matrix[0][2]}  |     |1|2|3|"
-   p "|-----|-----|-----|            "
-   p "|  #{matrix[1][0]}  |  #{matrix[1][1]}  |  #{matrix[1][2]}  |     |4|5|6|"
-   p "|-----|-----|-----|            "
-   p "|  #{matrix[2][0]}  |  #{matrix[2][1]}  |  #{matrix[2][2]}  |     |7|8|9|"
-   p "|-----|-----|-----|            "
+    p "|-----|-----|-----|     Position"
+    p "|  #{matrix[0][0]}  |  #{matrix[0][1]}  |  #{matrix[0][2]}  |     |1|2|3|"
+    p "|-----|-----|-----|            "
+    p "|  #{matrix[1][0]}  |  #{matrix[1][1]}  |  #{matrix[1][2]}  |     |4|5|6|"
+    p "|-----|-----|-----|            "
+    p "|  #{matrix[2][0]}  |  #{matrix[2][1]}  |  #{matrix[2][2]}  |     |7|8|9|"
+    p "|-----|-----|-----|            "
   end
 
   def end_game(matrix)
