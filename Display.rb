@@ -8,6 +8,7 @@ class Display
     p "Welcome to Tic_Tac_Toe"
     p "Enjoy playing         "
     p "----------------------"
+    gets
   end
 
   def get_player_move(player, matrix)
