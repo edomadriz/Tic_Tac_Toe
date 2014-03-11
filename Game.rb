@@ -21,12 +21,10 @@ class Game
 
   def play_move
     @current_player += 1
-    player = get_player
     begin
-      movement = display.get_player_move(player, board.matrix)
+      movement = display.get_player_move(get_player, board.matrix)
     end while not check_valid_move?(movement)
     board_insertion(movement)
-
   end
 
   def game_finished?
